@@ -1,0 +1,137 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
+        .ballcon{
+            position: absolute;
+            filter: blur(10px);
+        }
+        .ball{
+            width: 200px;
+            position: absolute;
+            height: 200px;
+            background-color: blue;
+            filter: drop-shadow(3px 2px 8px blue);
+           border-radius: 50%;
+           animation: 20s trans linear infinite alternate;
+
+        }
+        @keyframes trans {
+            50%{
+                transform: translate(200px) translateY(-50px);
+            }
+            100%{
+                transform: translate(0px) translateY(0px);
+
+            }
+        }
+        .on{
+            top: -300px;
+            right: 250px;
+            filter: none;
+        }
+        /*.on::before{
+            position: absolute;
+            filter: blur(4px);
+            content: "";
+            width: inherit;
+            filter: none;
+
+            height: inherit;
+            background-color: black;
+            border-radius: inherit;
+            transform: translate(70px);
+        }*/
+        .tw{
+            right: 200px;
+            width: 100px;
+            height: 100px;
+        }
+        .th{
+        top: 150px;
+        width: 150px;
+        height: 150px;
+        right: -120px;
+        }
+        h1{
+            font-weight: bolder;
+            filter: drop-shadow(0px 10px 90px green);
+        }
+        form{
+            filter: drop-shadow(0px 0px 20px blue);
+            z-index: 333;
+            border: 2px solid blue;
+            border-radius: 16px;
+            color: blue;
+            height: 400px;
+            width: 400px;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            background-color: black;
+        }
+        input{
+            height: 30px;
+            width: 70%;
+            background-color: transparent;
+            color: aliceblue;
+            outline: none;
+             }
+
+          input::placeholder{
+            color: rgba(255, 255, 255, 0.785);
+
+          }
+          input:focus {
+            border: 2px solid blue;
+            box-shadow: 4px 5px 9px blue,-4px -5px 9px blue,1px 1px 9px blue,-1px -1px 9px blue;
+            color: aqua;
+            
+          }   
+        button{
+            width: 70%;
+            height: 30px;
+            cursor: pointer;
+           box-shadow: -1px 2px 9px rgba(0, 0, 255, 0.566),-1px -2px 9px rgba(0, 0, 255, 0.363),-1px 1px 9px rgba(0, 0, 255, 0.456),-1px -1px 9px rgba(0, 0, 255, 0.505);
+            color: whitesmoke;
+            background: linear-gradient(100deg, rgb(9, 9, 218), black);
+        }
+        i{
+            position: absolute;
+            color: rgb(0, 98, 255);
+            text-align: end;
+            font-size: 21px;
+            transform: translateY(68px) translate(100px);
+
+        }
+        .bi-person-circle{
+            transform: translateY(-21px)translate(100px);
+        }
+    </style>
+</head>
+<body>
+    <div class="ballcon">
+        <div class="ball  on"></div>
+        <div class="ball  tw"></div>
+        <div class="ball  th"></div>
+    </div>
+    <form action="spinTheWheel.html">
+        <h1>WELCOME</h1>
+        <i class="bi bi-person-circle"></i>
+        <input type="tel" placeholder="phone number" required>
+        <i class="bi bi-lock"></i>
+        <input type="name" placeholder="Fullname" required>
+        <button>Continue</button>
+    </form>
+</body>
+</html>

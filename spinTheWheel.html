@@ -1,0 +1,333 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-5.3.3/dist/css/bootstrap.min.css">
+    <style>
+        body{
+       background-color: rgb(17, 0, 128);
+       max-height: 100vh;
+       color: aliceblue;
+       display: flex;
+       flex-wrap: wrap;
+       justify-content: center;
+        }
+        progress{
+            height: 30px;
+            width: 300px;
+    
+        }
+        .spin{
+        
+            cursor: pointer;
+            transform: rotate(30deg);
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background-color: white;
+            animation: rotate 5s linear;
+            border: 3px solid black;
+        }
+      /*  @keyframes rotate {
+            100%{
+                transform: rotate(0deg);
+            }
+        }*/
+        .spin img{
+            width: 50px;
+            height: 50px;
+            
+        }
+        .con::before{
+            z-index: 22;
+            position: absolute;
+            transform: translateX(-9px);
+            border-bottom-right-radius: 30px;
+            content: "";
+            
+            background-color: red;
+            width: 20px;
+            height: 40px;
+        }
+        .dot{
+            width: 5px;
+            border-radius: 50%;
+            height: 5px;
+            position: absolute;
+            
+            transform: translateX(123px) translateY(120px);
+            background-color: black;
+        }
+        .dot::before{
+            position: absolute;
+            content: "";
+            width: 2px;
+            border-radius: 9px;
+            height: 130px;
+            background-color: black;
+            right: 1;
+        }
+        .dot::after{
+            position: absolute;
+            content: "A";
+            width: 2px;
+            border-radius: 9px;
+            height: 130px;
+            background-color: black;
+            top: -120px;
+            right: 1px;
+        }
+        .on{
+            transform: rotate(70deg) translate(155px) translatey(-74px);
+            
+        }
+        .tw{
+            transform: rotate(120deg) translatey(-169px) translate(43px);
+        }
+        .center{
+            width: 20px;
+            height: 20px;
+            background-color: black;
+            position: absolute;
+            border-radius: 50%;
+            transform: translate(115px) translateY(115px);
+        }
+        button{
+            height: 40px;
+            background-color: rgba(12, 189, 229, 0.911);
+            color: aliceblue;
+            font-size: large;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: rgba(255, 250, 240, 0.936);
+            color: rgba(12, 189, 229, 0.934) ;
+        }
+        .comment{
+            width: 100%;
+        }
+        #commentcon{
+            display: none;
+            height: 50px;
+            background-color: white;
+            color: grey;
+            width: 100%;
+        }
+        #commentcon::before{
+            position: absolute;
+            content: "";
+            background-color: aqua;
+            width: 30px;
+            border-radius: 50%;
+            transform: translateY(10px);
+            left: 12px;
+            height: 30px;
+        }
+        .com{
+           position: relative;
+            text-align: start;
+            width: 70%;
+            font-size: 10px;
+        }
+       
+        
+        .com p{
+            position: absolute;
+            
+            color: darkblue;
+        }
+        .com input{
+            height: 40px;
+            width: 260px;
+            border-radius: 10px;
+            font-size: 12px;
+            color: black;
+            font-weight: bold;
+        }
+        #main{
+            display: none;
+        }
+        .reward{
+            position: absolute;
+            transform: rotate(270deg);
+        }
+        .one{
+            right: -70px;
+            transform: translateY(20px) rotate(270deg) translate(-20px);
+        }
+        .two{
+            left: 50px;
+            transform: rotate(270deg) translate(40px);
+        }
+        .three{
+            right: 50px;
+            transform: translatey(-30px) rotate(220deg);
+
+        }
+        .four{
+            z-index: 999;
+            transform: rotatez(-204deg) translatey(-50px) translate(10px)scale(0.9);
+        }
+        .five{
+            left: 60px;
+            transform: translatey(-15px) rotate(-270deg) ;
+        }
+        .six{
+            top: -100px;
+            transform: rotate(-30deg) translate(-60px)translateY(-20px);
+        }
+        
+        #active{
+            z-index: 9999;
+            transform: translateY(-250px);
+            top: 0;
+            display: none;
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <marquee behavior="" direction=""><i>phillip just won an iphone 16pro max📱😍😍 &nbsp; &nbsp; &nbsp; jago just won gallaxy fold pro📲💘😍😍</i></marquee>
+        <h2>Stand A chance To Win An Iphone 14📱📲</h2>
+       <p>Spin the wheel</p>
+    <div class="con">
+    <div class="spin" id="spin" >      
+        <div class="center"></div>
+            <div class="dot on"><img src="images (1).jpeg" alt="" class="reward one">
+                <img src="images.jpeg"  class="reward two"></div>
+            <div class="dot tw"><img src="images (2).jpeg"  class="reward three">
+            <img src="images (5).jpeg"  class="reward four"></div>
+            <div class="dot th"><img src="images (3).jpeg"  class="reward five">
+            <img src="images (4).jpeg"  class="reward six"></div>
+        
+    </div>
+</div>
+
+
+  <img src="images (5).jpeg" alt="" id="active">
+
+    <br>
+    <button onclick="spin()" id="stop">SPIN</button>
+    <br>
+
+
+ <main id="main">   
+  <progress value="0" max="100" id="prog">30%</progress>
+   <p>Share to 10 Friends and 5 Groups to claim your Reward</p>
+  <a href="#" onclick="act()"><button  id="click">SHARE ON WHATSAPP</button></a>
+  <button>claim reward</button>
+</main>
+
+
+
+  <h3 id="per"></h3>
+  <h2 id="demo"></h2>
+  <input type="text"id="comment" placeholder="write a comment">
+  <button onclick="comment()">comment</button>
+  <br>
+
+  <div id="commentcon">
+    <div class="com">
+      <b>user270655</b>
+     <input type="text" id="display" disabled>
+     <p>2s . like . Reply</p>
+     </div>
+  </div>
+
+  <img src="sfgd.jpg" alt="image" class="comment">
+
+</center>
+<script src="bootstrap-5.3.3/dist/js/bootstrap.min.js"></script> 
+  <script>
+    function act() {
+          var url = "https://wa.me/23409071221697";
+          var message = "Fhiness.dev link: " + url;
+          var whatsappUrl = "https://wa.me/?text=" + encodeURIComponent(message);
+          window.location.href = whatsappUrl;
+        
+        let  param = 10;
+        var per = document.getElementById("per");
+        var display = document.getElementById("demo");
+        var inpu = document.getElementById("inp");
+        var progres = document.getElementById("prog");
+         progres.value += param;
+         per.innerHTML = progres.value+"%";
+         if (progres.value >= 100) {
+            display.innerHTML ="You HAVE COMPLETED THE TASK";
+            alert("You have complete the task");
+         }
+         else if (progres.value >= 65) {
+           progres.value -= 7;
+         }
+         else if (progres.value >= 80) {
+           progres.value += 3;
+         }
+          else {
+            display.innerHTML= "YOU HAVE NOT COMPLETE THE TASK";
+         }
+    }
+
+    function spin(params) {
+        var stop = document.getElementById("stop");
+        var spin = document.getElementById("spin");
+        var main = document.getElementById("main");
+        var active = document.getElementById("active");
+        spin.style.transform = "rotate(85deg)";
+
+        setTimeout(() => {
+            active.animate([
+            {display: "block"},
+            {transform: "scale(1.5)"},
+            {transform: "scale(1)"},
+            
+        ],
+        {
+            duration : 5000,
+            iterations: 1,
+        }
+       )
+           
+         }, 7000);
+       
+        
+
+        spin.disabled = true;
+          stop.disabled = true;
+          stop.style.opacity = 0.5;
+        spin.animate([
+            {transform: "rotatez(0deg)"},
+            { transform: "rotatez(3600deg)"}
+        ],
+        {
+            duration : 5000,
+            iterations: 1,
+        }
+       )
+
+
+       setInterval(() => {
+          main.style.display = "block";
+
+       }, 5000);
+    }
+    function comment(params) {
+        var com = document.getElementById("comment");
+        var dis = document.getElementById("display");
+        var con = document.getElementById("commentcon");
+        var display = document.getElementById("demo");
+    
+        
+        if (com.value != "") {
+            con.style.display = "block";
+        }
+        else{
+            display.innerHTML = "Write a comment.....?";
+        }
+        dis.value = com.value;
+    }
+  </script>
+</body>
+</html>

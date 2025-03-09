@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+
+<a href="#" onclick="shareOnWhatsApp()">Share on WhatsApp</a>
+
+<script>
+  function shareOnWhatsApp() {
+    var url = "https://example.com";
+    var message = "Check out this link: " + url;
+    var whatsappUrl = "https://wa.me/?text=" + encodeURIComponent(message);
+    window.location.href = whatsappUrl;
+  }
+</script>
+
+</body>
+
+</html>
