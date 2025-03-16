@@ -1,8 +1,8 @@
 var display = document.getElementById("demo");
 var progres = document.getElementById("prog");
 function act() {
-   var URL = "//update link";
-   var message = "Abig oppurtunity awaits you" + URL;
+   var URL = "https://fhiness.github.io/Spin/";
+   var message = "Abig oppurtunity awaits you  " + URL;
    var whatsappUrl = 'https://wa.me/?text=' + encodeURIComponent(message);
    window.location.href = whatsappUrl;
 
